@@ -52,9 +52,12 @@ public class MainController {
     }
 }
 ```
+
 ---
+
 ### *Spring security 3
 这个是用mybatis的一个其他版本的实现，学习过程中可以暂时忽略
+
 ---
 
 ### Spring security OAuth2 1
