@@ -1,0 +1,51 @@
+server:
+  port: 53010
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'shutdown'
+  endpoint:
+    shutdown:
+      enabled: true
+
+eureka:
+  client:
+    healthcheck:
+      enabled: false
+    register-with-eureka: true
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:53000/eureka/
+    instance-info-replication-interval-seconds: 10
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: false
+      routes:
+        - id: uaa-service
+          uri: lb://uaa-service
+          predicates:
+            - Path=/uaa/**
+          filters:
+            - StripPrefix= 1
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix= 1
+jwt:
+  crt:
+    filepath: /cert/prepiam_toronto_ca_ibm_com.crt
+cbn:
+  jwt:
+    secret: 'cbn_tool_secret'

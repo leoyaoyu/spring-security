@@ -1,0 +1,14 @@
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE')
+    compile('io.springfox:springfox-swagger2')
+    compile('io.springfox:springfox-swagger-ui')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.springframework.security:spring-security-web:5.2.1.RELEASE')
+    compile('org.springframework.security:spring-security-config:5.2.1.RELEASE')
+    //include bouncycastle only for SCrypt password encoder
+    compile('org.bouncycastle:bcprov-jdk15on:1.65')
+
+}

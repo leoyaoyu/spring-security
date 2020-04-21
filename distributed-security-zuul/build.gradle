@@ -1,0 +1,17 @@
+dependencies {
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-zuul')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-ribbon')
+    compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
+//    compile('org.springframework.retry:spring‐retry')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('commons-io:commons-io:2.5')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    implementation ('org.springframework.boot:spring-boot-starter-logging')
+    compile('org.springframework.cloud:spring-cloud-starter-security')
+    compile('org.springframework.cloud:spring-cloud-starter-oauth2')
+    compile('org.springframework.security:spring-security-jwt')
+    compile('javax.interceptor:javax.interceptor-api:3.1')
+    compile('com.alibaba:fastjson:1.2.47')
+}

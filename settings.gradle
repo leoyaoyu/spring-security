@@ -1,0 +1,13 @@
+rootProject.name = 'com.ibm.esw.leo.spring.security'
+include 'security1'
+include 'security2'
+include 'securityMybatis'
+include 'distributed-security-uaa-service'
+include 'distributed-security-order-service'
+include 'distributed-security-2uaa-jwt-service'
+include 'distributed-security-2order-jwt-service'
+include 'distributed-security-3order-jwt-service'
+include 'distributed-security-eureka'
+include 'distributed-security-gateway'
+include 'distributed-security-zuul'
+
