@@ -4,7 +4,6 @@ package com.ibm.esw.leo.spring.security.config;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -25,7 +24,6 @@ import java.io.IOException;
 
 @Slf4j
 @Configuration
-//@EnableWebSecurity springboot NOT need this annotation
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //定义用户信息服务(查询用信息)
@@ -40,16 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //.password("user123")
                 .password("$2a$10$1bCBfbxNprQ3wqnL8dgrLu1bba619p7JnhCY2052pc.vBgZ0qDYZS")
                 .authorities("p2").build());
-        return manager;
-    }
-
-    /**
-     * 这一步的配置是必不可少的，否则SpringBoot会自动配置一个AuthenticationManager,覆盖掉内存中的用户
-     */
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        AuthenticationManager manager = super.authenticationManagerBean();
         return manager;
     }
 

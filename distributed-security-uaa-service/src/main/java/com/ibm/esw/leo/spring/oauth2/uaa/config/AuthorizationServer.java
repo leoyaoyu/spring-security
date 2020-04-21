@@ -27,8 +27,6 @@ import javax.sql.DataSource;
 @EnableAuthorizationServer
 public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 
-
-
     /**
      * 1. 配置客户端详细信息服务
      *

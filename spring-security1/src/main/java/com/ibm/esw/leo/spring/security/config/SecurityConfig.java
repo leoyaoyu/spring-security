@@ -25,10 +25,9 @@ import java.io.IOException;
 
 @Slf4j
 @Configuration
-//@EnableWebSecurity springboot NOT need this annotation
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //定义用户信息服务(查询用信息)
+    //定义用户与权限的关系(查询用信息)
     @Bean
     public UserDetailsService userDetailsService() {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
@@ -43,16 +42,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return manager;
     }
 
-    /**
-     * 这一步的配置是必不可少的，否则SpringBoot会自动配置一个AuthenticationManager,覆盖掉内存中的用户
-     */
-    @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        AuthenticationManager manager = super.authenticationManagerBean();
-        return manager;
-    }
-
     //密码解码器
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -60,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    //!!最重要的是安全拦截机制
+    //定义资源与权限的关系!!最重要的是安全拦截机制
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
